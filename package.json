@@ -4,9 +4,9 @@
   "description": "A personal portfolio site built with Astro and TypeScript",
   "main": "./web/dist/index.js",
   "scripts": {
-    "dev": "astro dev --root './web'",
-    "start": "astro dev --root './web'",
-    "build": "astro check --root './web' && astro build --root './web'",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "@aidenberzins",
