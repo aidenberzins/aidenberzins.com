@@ -1,6 +1,6 @@
 ---
 title: Senior Software Engineer
-location: olive
+location: Olive AI
 website: https://oliveai.com/
 start: Apr 2021
 end: Jul 2022

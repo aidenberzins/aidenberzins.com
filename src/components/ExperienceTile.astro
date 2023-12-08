@@ -48,9 +48,17 @@ const year = `${start} – ${end}`;
             >
               <!-- This span is here to allow for the entire hover group effect  -->
             </span>
-            <span class="inline-block">
+
+            <span class="inline-block group/link">
               {title + " · " + location}
-              <ArrowIcon />
+              <ArrowIcon
+                className={[
+                  "inline-block h-4 w-4 shrink-0 transition-transform",
+                  "group-hover/link:-translate-y-1 group-hover/link:translate-x-1",
+                  "group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1",
+                  "motion-reduce:transition-none ml-1 translate-y-px",
+                ].join(" ")}
+              />
             </span>
           </Link>
         </div>
