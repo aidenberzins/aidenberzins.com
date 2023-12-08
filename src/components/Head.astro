@@ -1,0 +1,64 @@
+---
+import config from "../../config";
+const { page_title = `${config.name} | ${config.role_title}` } = Astro.props;
+---
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={config.description} />
+  <meta name="image" content={`${config.url}/og.png`} />
+  <!-- OG Meta -->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Aiden Berzins" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={page_title} />
+  <meta property="og:description" content={config.description} />
+  <meta property="og:url" content={config.url} />
+  <meta property="og:image" content={`${config.url}/og.png`} />
+  <!-- Twitter Meta -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:creator" content={config.twitter_handle} />
+  <meta property="twitter:site" content={config.twitter_handle} />
+  <meta property="twitter:title" content={page_title} />
+  <meta property="twitter:description" content={config.description} />
+  <meta property="twitter:url" content={config.url} />
+  <meta property="twitter:image" content={`${config.url}/og.png`} />
+  <!-- Favicons -->
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="msapplication-TileColor" content="#0f172a" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/favicon/apple-touch-icon.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="512x192"
+    href="/favicon/android-chrome-512x512.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="192x192"
+    href="/favicon/android-chrome-192x192.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/favicon/favicon-32x32.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/favicon/favicon-16x16.png"
+  />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta name="generator" content={Astro.generator} />
+  <title>{page_title}</title>
+</head>

@@ -1,0 +1,64 @@
+---
+import Link from "../../components/Link.jsx";
+
+const projects = [
+  {
+    title: "Project 1",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus facilis temporibus assumenda eos odit mollitia accusantium atque, necessitatibus rerum explicabo officiis reiciendis delectus eveniet officia adipisci voluptatibus laboriosam iusto eius?",
+    image: "https://picsum.photos/300/200?id=1",
+  },
+  {
+    title: "Project 2",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus facilis temporibus assumenda eos odit mollitia accusantium atque, necessitatibus rerum explicabo officiis reiciendis delectus eveniet officia adipisci voluptatibus laboriosam iusto eius?",
+    image: "https://picsum.photos/300/200?id=2",
+  },
+  {
+    title: "Project 3",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus facilis temporibus assumenda eos odit mollitia accusantium atque, necessitatibus rerum explicabo officiis reiciendis delectus eveniet officia adipisci voluptatibus laboriosam iusto eius?",
+    image: "https://picsum.photos/300/200?id=3",
+  },
+  {
+    title: "Project 4",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus facilis temporibus assumenda eos odit mollitia accusantium atque, necessitatibus rerum explicabo officiis reiciendis delectus eveniet officia adipisci voluptatibus laboriosam iusto eius?",
+    image: "https://picsum.photos/300/200?id=4",
+  },
+];
+---
+
+<section id="project" class="my-16 scroll-mt-16">
+  <div class="mb-12 space-y-8">
+    {
+      projects.map((project) => (
+        <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
+          <aside class="sm:col-span-2">
+            <div
+              class="p-px mt-2 border border-gray-300 rounded dark:border-slate-600"
+              slot="aside"
+            >
+              <img src={project.image} alt="image" class="rounded shadow-sm" />
+            </div>
+          </aside>
+          <main class="sm:col-span-6">
+            <header>
+              <h2
+                slot="header"
+                class="inline-block font-medium leading-snug dark:text-slate-200 text-slate-900"
+              >
+                {project.title}
+              </h2>
+              <p class="mt-2 text-sm leading-normal">{project.description}</p>
+            </header>
+            <slot />
+          </main>
+        </div>
+      ))
+    }
+  </div>
+  <Link href="/project" className="text-sm font-medium text-slate-900">
+    View All Project
+  </Link>
+</section>

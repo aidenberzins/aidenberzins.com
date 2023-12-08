@@ -1,0 +1,13 @@
+---
+import ExperienceTile from "../../components/ExperienceTile.astro";
+import Link from "../../components/Link";
+// @ts-expect-error - current error with Astro not recognizing it has files
+const experiences = await Astro.glob(["../experience/*.md"]);
+---
+
+<section id="experience" class="my-16 scroll-mt-16 snap-y">
+  <ol class="flex flex-col gap-4 snap-start">
+    {experiences.map((exp) => <ExperienceTile exp={exp} />)}
+  </ol>
+  <Link href="#">View Full Resume</Link>
+</section>

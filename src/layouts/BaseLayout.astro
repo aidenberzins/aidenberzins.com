@@ -1,0 +1,60 @@
+---
+import Head from "../components/Head.astro";
+import ThemeSwitch from "../components/ThemeSwitch.jsx";
+---
+
+<html
+  lang="en"
+  class="scroll-smooth focus:scroll-auto min-h-full dark"
+  id="root"
+>
+  <Head />
+  <body
+    class={[
+      "transition-all duration-500",
+      "bg-gray-50 text-gray-900 selection:bg-yellow-200 selection:text-orange-900",
+      "dark:bg-slate-900 dark:text-slate-400 dark:selection:bg-sky-300 dark:selection:text-sky-900",
+      "relative",
+      "leading-relaxed antialiased",
+      "vsc-initialized",
+    ].join(" ")}
+  >
+    <div
+      class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0"
+    >
+      <section class="lg:flex lg:justify-between lg:gap-4">
+        <header
+          class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24"
+        >
+          <slot name="header" />
+        </header>
+        <main class="pt-24 lg:w-1/2 lg:py-24 lg:relative">
+          <ThemeSwitch client:load />
+          <slot />
+        </main>
+      </section>
+    </div>
+    <script is:inline>
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+
+      if (theme === "light") {
+        document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+      }
+
+      window.localStorage.setItem("theme", theme);
+    </script>
+  </body>
+</html>

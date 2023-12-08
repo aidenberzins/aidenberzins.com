@@ -1,0 +1,27 @@
+---
+import Link from "../../components/Link";
+import { GitHubIcon, LinkedInIcon } from "../../components/icons";
+---
+
+<section id="contact">
+  <ul class="flex items-center mt-8 ml-1" aria-label="Social media">
+    <li class="mr-5 text-xs">
+      <Link
+        className="block transition-all duration-300 hover:text-[#6e5494] dark:hover:text-[#f5f5f5] focus-visible:text-[#6e5494]"
+        href="https://github.com/aidenberzins"
+      >
+        <span class="sr-only">GitHub</span>
+        <GitHubIcon className="h-6 w-6" />
+      </Link>
+    </li>
+    <li class="mr-5 text-xs">
+      <Link
+        className="block transition-all duration-300  hover:text-[#0077b5] dark:hover:text-[#ffffff] focus-visible:text-[#0077b5]"
+        href="https://www.linkedin.com/in/aiden-berzins/"
+      >
+        <span class="sr-only">LinkedIn</span>
+        <LinkedInIcon className="h-6 w-6" />
+      </Link>
+    </li>
+  </ul>
+</section>

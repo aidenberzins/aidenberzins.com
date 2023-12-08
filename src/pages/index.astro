@@ -1,16 +1,20 @@
 ---
+import Layout from "../layouts/BaseLayout.astro";
 
+import Header from "../components/Header.astro";
+import ContactSection from "../content/sections/Contact.astro";
+
+import AboutSection from "../content/sections/About.astro";
+import ExperienceSection from "../content/sections/Experience.astro";
+import ProjectSection from "../content/sections/Project.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Aiden Berzins | Senior Software Engineer</title>
-  </head>
-  <body>
-    <p>Connected To GitHub Pages...</p>
-  </body>
-</html>
+<Layout>
+  <Header slot="header" />
+  <ContactSection slot="header" />
+  <AboutSection />
+  <ExperienceSection />
+  <ProjectSection />
+  <Footer />
+</Layout>
