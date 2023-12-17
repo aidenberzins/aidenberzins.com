@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {cva} from 'class-variance-authority';
 import {twMerge} from 'tailwind-merge';
 
@@ -53,6 +53,13 @@ const textStyles = cva(
 const Navigation = () => {
   const sections = ['About', 'Experience', 'Project'];
   const [activeSection, setActiveSection] = useState(sections[0].toLowerCase());
+
+  useEffect(() => {
+    if (window && window.location.hash) {
+      return setActiveSection(window.location.hash.replace('#', ''));
+    }
+    setActiveSection(sections[0].toLowerCase());
+  }, []);
 
   return (
     <nav className="hidden nav lg:block" aria-label="navigation jump links">
