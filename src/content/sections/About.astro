@@ -1,30 +1,33 @@
-<section
-  id="about"
-  class="mb-16 space-y-4 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-  aria-label="About"
->
-  <p>
-    Hi, I'm <strong>Aiden</strong>.
-    <span
-      class="inline-block text-3xl hover:animate-wave motion-reduce:animate-none"
-      >👋</span
-    >
-  </p>
-  <p>
-    A Senior Software Engineer with a passion for crafting robust and scalable
-    backend solutions. With years of experience in the industry, I specialize in
-    backend development, leveraging the power and flexibility of TypeScript,
-    Node.js, and NestJS to build high-performance applications.
-  </p>
-  <p>
-    My expertise isn't limited to the server side; I also possess strong
-    full-stack capabilities, seamlessly integrating front-end technologies like
-    React to deliver complete, accessible, and user-friendly experiences.
-  </p>
-  <p>
-    My journey in software engineering has been marked by a continuous pursuit
-    of innovation and excellence. Whether it's optimizing existing systems or
-    developing new features from scratch, I approach every project with a
-    curiousity and a commitment to quality.
-  </p>
+---
+import { h2, p, section } from "../../components/variants";
+---
+
+<section id="about" class={`${section()}`} aria-label="About">
+  <div class="mb-16 space-y-4">
+    <h2 class={`${h2()}`}>About</h2>
+    <p class={`${p()}`}>
+      Hi, I'm <strong>Aiden</strong>.
+      <span
+        class="inline-block text-3xl hover:animate-wave motion-reduce:animate-none"
+        >👋</span
+      >
+    </p>
+    <p class={`${p()}`}>
+      A Senior Software Engineer with a passion for crafting robust and scalable
+      backend solutions. With years of experience in the industry, I specialize
+      in backend development, leveraging the power and flexibility of
+      TypeScript, Node.js, and NestJS to build high-performance applications.
+    </p>
+    <p class={`${p()}`}>
+      My expertise isn't limited to the server side; I also possess strong
+      full-stack capabilities, seamlessly integrating front-end technologies
+      like React to deliver complete, accessible, and user-friendly experiences.
+    </p>
+    <p class={`${p()}`}>
+      My journey in software engineering has been marked by a continuous pursuit
+      of innovation and excellence. Whether it's optimizing existing systems or
+      developing new features from scratch, I approach every project with a
+      curiousity and a commitment to quality.
+    </p>
+  </div>
 </section>

@@ -1,26 +1,23 @@
 ---
+import { cva } from "class-variance-authority";
 import Head from "../components/Head.astro";
 import ThemeSwitch from "../components/ThemeSwitch";
 import Cursor from "../components/Cursor";
 ---
 
-<html
-  lang="en"
-  class="scroll-smooth focus:scroll-auto min-h-full dark"
-  id="root"
->
+<html lang="en" class="scroll-smooth focus:scroll-auto min-h-full" id="root">
   <Head />
   <body
-    class={[
+    class={cva([
       "transition-all duration-500",
       "leading-relaxed antialiased font-sans",
-      "bg-gray-50 text-gray-900 selection:bg-sky-200 selection:text-sky-900",
+      "bg-gray-100 text-gray-900 selection:bg-sky-200 selection:text-sky-900",
       "dark:bg-slate-900 dark:text-slate-400 dark:selection:bg-sky-300 dark:selection:text-sky-900",
       "relative",
       "px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-8",
       "mx-auto min-h-screen max-w-screen-xl",
       "vsc-initialized",
-    ].join(" ")}
+    ])()}
   >
     <Cursor client:load />
     <header class="relative flex justify-between flex-row-reverse items-center">

@@ -2,7 +2,7 @@
 title: Senior Software Engineer
 location: arketa
 website: https://arketa.co
-start: Mar 2023
+start: Mar
 end: Dec 2023
 skills: ['ReactJS', 'NodeJS', 'NestJS', 'Typescript', 'MongoDB', 'AWS', 'GCP', 'Docker']
 description:

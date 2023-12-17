@@ -2,7 +2,7 @@
 title: Senior Software Engineer
 location: Olive AI
 website: https://oliveai.com/
-start: Apr 2021
+start: Apr
 end: Jul 2022
 skills: ['ReactJS', 'NodeJS', 'NestJS', 'Typescript', 'MongoDB', 'AWS', 'Docker']
 description:

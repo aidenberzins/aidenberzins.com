@@ -1,13 +1,29 @@
 ---
 import ExperienceTile from "../../components/ExperienceTile.astro";
 import Link from "../../components/Link";
+import { ArrowRightIcon } from "../../components/icons";
+import { h2, section } from "../../components/variants";
 // @ts-expect-error - current error with Astro not recognizing it has files
 const experiences = await Astro.glob(["../experience/*.md"]);
 ---
 
-<section id="experience" class="my-16 scroll-mt-16 snap-y">
-  <ol class="flex flex-col gap-4 snap-start">
-    {experiences.map((exp) => <ExperienceTile exp={exp} />)}
-  </ol>
-  <Link href="#">View Full Resume</Link>
+<section id="experience" class={section()} aria-label="Experience">
+  <div class="mb-16 space-y-12">
+    <h2 class={`${h2()}`}>Experience</h2>
+    <ol class="flex flex-col gap-4 snap-start">
+      {experiences.map((exp) => <ExperienceTile exp={exp} />)}
+    </ol>
+  </div>
+
+  <span class="group cursor-pointer flex gap-x-2 items-center">
+    <Link
+      className="border-b-2 border-transparent group-hover:border-sky-600 dark:group-hover:border-teal-300 transition-all ease-in duration-100"
+      href="#"
+    >
+      View Full Resume
+    </Link>
+    <ArrowRightIcon
+      className="inline-block w-4 h-4 ml-1 group-hover:translate-x-1 motion-reduce:transition-none transition-transform ease-out duration-100"
+    />
+  </span>
 </section>

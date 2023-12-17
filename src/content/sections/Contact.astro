@@ -1,9 +1,10 @@
 ---
 import Link from "../../components/Link";
 import { GitHubIcon, LinkedInIcon } from "../../components/icons";
+import { section } from "../../components/variants";
 ---
 
-<section id="contact">
+<section id="contact" class={section()}>
   <ul class="flex items-center mt-8 ml-1" aria-label="Social media">
     <li class="mr-5 text-xs">
       <Link
@@ -17,7 +18,7 @@ import { GitHubIcon, LinkedInIcon } from "../../components/icons";
     <li class="mr-5 text-xs">
       <Link
         className="block transition-all duration-300  hover:text-[#0077b5] dark:hover:text-[#ffffff] focus-visible:text-[#0077b5]"
-        href="https://www.linkedin.com/in/aiden-berzins/"
+        href="https://linkedin.com/in/aiden-berzins/"
       >
         <span class="sr-only">LinkedIn</span>
         <LinkedInIcon className="h-6 w-6" />

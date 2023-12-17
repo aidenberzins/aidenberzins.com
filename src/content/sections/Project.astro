@@ -1,7 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import Link from "../../components/Link";
+import { h2, section } from "../../components/variants";
 import portfolio_image from "../../images/aiden_berzins_portfolio.jpeg";
+import { ArrowRightIcon } from "../../components/icons";
 
 const projects = [
   {
@@ -39,45 +41,60 @@ const projects = [
 ];
 ---
 
-<section id="project" class="my-16 scroll-mt-16">
-  <div class="mb-12 space-y-8">
-    {
-      projects.map((project) => (
-        <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-          <aside class="sm:col-span-2">
-            <div
-              class="p-px mt-2 border border-gray-300 rounded dark:border-slate-600"
-              slot="aside"
-            >
-              <img
-                src={project.image}
-                height="200"
-                width="300"
-                title={`thumbnail of ${project.title} project`}
-                alt={`thumbnail of ${project.title} project`}
-                class="rounded shadow-sm"
-              />
-            </div>
-          </aside>
-          <main class="sm:col-span-6">
-            <header>
-              <h2
-                slot="header"
-                class="inline-block font-medium leading-snug dark:text-slate-200 text-slate-900"
+<section id="project" class={section()} aria-label="Project">
+  <div>
+    <h2 class={h2()}>Projects</h2>
+    <div class="mb-16 space-y-12">
+      {
+        projects.map((project) => (
+          <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-4 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50 space-y-4 sm:space-y-0">
+            <aside class="sm:col-span-2">
+              <div
+                class="p-px mt-2 border border-gray-300 rounded dark:border-slate-600"
+                slot="aside"
               >
-                {project.title}
-              </h2>
-            </header>
-            <p class="mt-2 text-sm leading-normal">{project.description}</p>
-            <footer class="text-sm">
-              {Object.entries(project.links).map(([key, value]) => (
-                <a class="inline-block mr-2 underline">{key}</a>
-              ))}
-            </footer>
-          </main>
-        </div>
-      ))
-    }
+                <img
+                  src={project.image}
+                  height="200"
+                  width="300"
+                  title={`thumbnail of ${project.title} project`}
+                  alt={`thumbnail of ${project.title} project`}
+                  class="rounded shadow-sm"
+                />
+              </div>
+            </aside>
+            <main class="sm:col-span-6 space-y-2">
+              <header>
+                <h2
+                  slot="header"
+                  class="inline-block font-medium leading-snug dark:text-slate-200 text-slate-900"
+                >
+                  {project.title}
+                </h2>
+              </header>
+              <p class="mt-2 text-sm leading-normal">{project.description}</p>
+              <footer class="text-sm">
+                {Object.entries(project.links).map(([key, value]) => (
+                  <a class="p-1 inline-block mr-2 underline text-sky-700 dark:text-sky-300 cursor-pointer hover:text-slate-900  dark:hover:text-sky-600 transition-all ease-linear duration-300">
+                    {key}
+                  </a>
+                ))}
+              </footer>
+            </main>
+          </div>
+        ))
+      }
+    </div>
   </div>
-  <Link href="https://github.com/aidenberzins">View All Project</Link>
+  <span class="group cursor-pointer flex gap-x-2 items-center">
+    <Link
+      className="border-b-2 border-transparent group-hover:border-sky-600 dark:group-hover:border-teal-300 transition-all ease-in duration-100"
+      href="https://github.com/aidenberzins"
+    >
+      View All Project
+    </Link>
+    <ArrowRightIcon
+      className="inline-block w-4 h-4 ml-1 group-hover:translate-x-1 motion-reduce:transition-none transition-transform ease-out duration-100"
+    />
+  </span>
 </section>

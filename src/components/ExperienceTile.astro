@@ -1,4 +1,5 @@
 ---
+import { cva } from "class-variance-authority";
 import SkillTag from "./SkillTag.astro";
 import Link from "./Link";
 import { ArrowIcon } from "./icons";
@@ -14,35 +15,52 @@ const {
 } = Astro.props["exp"].frontmatter;
 
 const year = `${start} – ${end}`;
+
+const frame = cva([
+  "absolute -inset-x-4 -inset-y-4 z-0 hidden",
+  "rounded-md transition motion-reduce:transition-none",
+  "lg:-inset-x-6 lg:block",
+  "border border-transparent lg:group-hover:border-sky-200/60 lg:group-hover:bg-sky-50/20 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg",
+  "dark:lg:group-hover:bg-slate-800/50 dark:lg:group-hover:border-transparent",
+]);
+
+const linkVariants = cva([
+  "group/link",
+  "transition-all duration-200 ease-in-out",
+  "text-gray-900 hover:text-sky-700 focus-visible:text-sky-700",
+  "dark:text-slate-200 dark:hover:text-sky-300 dark:focus-visible:text-sky-300",
+]);
+
+const titleVariants = cva([
+  "transition-all duration-200 ease-in-out",
+  "inline-block h-4 w-4 shrink-0 transition-transform",
+  "group-hover/link:-translate-y-1 group-hover/link:translate-x-1",
+  "group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1",
+  "motion-reduce:transition-none ml-1 translate-y-px",
+]);
 ---
 
-<li class="mb-12">
+<li class="mb-12 last:mb-auto">
   <div
     class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50"
   >
-    <div
-      class={[
-        "absolute -inset-x-4 -inset-y-4 z-0 hidden",
-        "rounded-md transition motion-reduce:transition-none",
-        "lg:-inset-x-6 lg:block",
-        "lg:group-hover:bg-slate-200/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg",
-        "dark:lg:group-hover:bg-slate-800/50",
-      ].join(" ")}
-    >
-    </div>
+    <div class={`${frame()}`}></div>
     <header
-      class="z-10 mt-1 mb-2 text-xs font-semibold tracking-wide uppercase sm:col-span-2 text-sky-700 dark:text-slate-500"
+      class="z-10 mt-1 mb-2 text-xs font-semibold tracking-wide uppercase sm:col-span-2 text-slate-400 dark:text-slate-500"
       aria-label={year}
     >
-      {start} –<br class="hidden sm:block" />
-      {end}
+      {`${start} - ${end}`}
     </header>
     <div class="z-10 sm:col-span-6">
       <h3
         class="inline-block font-medium leading-snug dark:text-slate-200 text-slate-900"
       >
         <div>
-          <Link href={"#"} aria-label={title + " at " + location}>
+          <Link
+            href={"#"}
+            aria-label={title + " at " + location}
+            className={linkVariants()}
+          >
             <span
               class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"
             >
@@ -51,14 +69,7 @@ const year = `${start} – ${end}`;
 
             <span class="inline-block group/link">
               {title + " · " + location}
-              <ArrowIcon
-                className={[
-                  "inline-block h-4 w-4 shrink-0 transition-transform",
-                  "group-hover/link:-translate-y-1 group-hover/link:translate-x-1",
-                  "group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1",
-                  "motion-reduce:transition-none ml-1 translate-y-px",
-                ].join(" ")}
-              />
+              <ArrowIcon className={titleVariants()} />
             </span>
           </Link>
         </div>
