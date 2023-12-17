@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/BaseLayout.astro";
+import Layout from "../layouts/MainLayout.astro";
 
 import Header from "../components/Header.astro";
 import ContactSection from "../content/sections/Contact.astro";
@@ -11,8 +11,8 @@ import Footer from "../components/Footer.astro";
 ---
 
 <Layout>
-  <Header slot="header" />
-  <ContactSection slot="header" />
+  <Header slot="aside" />
+  <ContactSection slot="aside" />
   <AboutSection />
   <ExperienceSection />
   <ProjectSection />

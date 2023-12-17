@@ -1,6 +1,6 @@
 ---
 import SkillTag from "./SkillTag.astro";
-import Link from "./Link.jsx";
+import Link from "./Link";
 import { ArrowIcon } from "./icons";
 
 const {
@@ -34,7 +34,7 @@ const year = `${start} – ${end}`;
       class="z-10 mt-1 mb-2 text-xs font-semibold tracking-wide uppercase sm:col-span-2 text-sky-700 dark:text-slate-500"
       aria-label={year}
     >
-      {start} –<br />
+      {start} –<br class="hidden sm:block" />
       {end}
     </header>
     <div class="z-10 sm:col-span-6">

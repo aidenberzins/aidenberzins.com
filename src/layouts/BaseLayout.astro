@@ -1,6 +1,7 @@
 ---
 import Head from "../components/Head.astro";
-import ThemeSwitch from "../components/ThemeSwitch.jsx";
+import ThemeSwitch from "../components/ThemeSwitch";
+import Cursor from "../components/Cursor";
 ---
 
 <html
@@ -12,27 +13,21 @@ import ThemeSwitch from "../components/ThemeSwitch.jsx";
   <body
     class={[
       "transition-all duration-500",
-      "bg-gray-50 text-gray-900 selection:bg-yellow-200 selection:text-orange-900",
+      "leading-relaxed antialiased font-sans",
+      "bg-gray-50 text-gray-900 selection:bg-sky-200 selection:text-sky-900",
       "dark:bg-slate-900 dark:text-slate-400 dark:selection:bg-sky-300 dark:selection:text-sky-900",
       "relative",
-      "leading-relaxed antialiased",
+      "px-6 py-12 md:px-12 md:py-20 lg:px-24 lg:py-8",
+      "mx-auto min-h-screen max-w-screen-xl",
       "vsc-initialized",
     ].join(" ")}
   >
-    <div
-      class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0"
-    >
-      <section class="lg:flex lg:justify-between lg:gap-4">
-        <header
-          class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24"
-        >
-          <slot name="header" />
-        </header>
-        <main class="pt-24 lg:w-1/2 lg:py-24 lg:relative">
-          <ThemeSwitch client:load />
-          <slot />
-        </main>
-      </section>
-    </div>
+    <Cursor client:load />
+    <header class="relative flex justify-between flex-row-reverse items-center">
+      <ThemeSwitch client:load />
+      <slot name="header" />
+    </header>
+
+    <slot />
   </body>
 </html>

@@ -3,5 +3,34 @@ import Layout from "./BaseLayout.astro";
 ---
 
 <Layout>
+  <header slot="header">
+    <h1 class="text-4xl font-bold">[[title]]</h1>
+  </header>
+  <!-- This navigation should be collabsible so the document can take up the full page -->
+  <nav
+    id="subnav"
+    class="space-y-2 [&>h2]:pt-4 [&>h2]:text-xl [&>h3]:ml-4"
+    slot="aside"
+  >
+    <slot name="toc" />
+  </nav>
   <slot />
+
+  <script>
+    const url = new URL(document.URL).pathname;
+
+    const toc_links = document
+      .getElementById("subnav")!
+      .getElementsByTagName("a");
+
+    console.log(toc_links);
+
+    for (let i = 0; i < toc_links.length; i++) {
+      if (toc_links[i]?.getAttribute("href") === url) {
+        toc_links[i].parentElement!.classList.add(
+          ...["font-bold", "underline"],
+        );
+      }
+    }
+  </script>
 </Layout>
