@@ -1,18 +1,17 @@
-import {MoonIcon, SunIcon} from './icons';
+import { MoonIcon, SunIcon } from './icons'
 
 const handleToggleClick = () => {
-  const element = document.documentElement;
-  element.classList.toggle('dark');
+  const element = document.documentElement
+  element.classList.toggle( 'dark' )
 
-  const isDark = element.classList.contains('dark');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-};
+  const isDark = element.classList.contains( 'dark' )
+  localStorage.setItem( 'theme', isDark ? 'dark' : 'light' )
+}
 
 export default function ThemeSwitch() {
   return (
     <button
-      onClick={handleToggleClick}
-      className="absolute top-0 flex gap-4 mt-4 right-4 sm:right-8 sm:top-8 md:right-16 md:top-16 lg-top-4 lg:right-0"
+      onClick={ handleToggleClick }
     >
       <span className="sr-only">Toggle theme</span>
       <div id="sun" className="hidden dark:block">
@@ -24,5 +23,5 @@ export default function ThemeSwitch() {
         <MoonIcon className="transition-all duration-300 ease-in-out fill-slate-900 motion-safe:hover:animate-wave" />
       </div>
     </button>
-  );
+  )
 }
