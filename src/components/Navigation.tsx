@@ -51,7 +51,7 @@ const textStyles = cva(
 );
 
 const Navigation = () => {
-  const sections = ['About', 'Experience', 'Project'];
+  const sections = ['About', 'Experience', 'Projects'];
   const [activeSection, setActiveSection] = useState(sections[0].toLowerCase());
 
   useEffect(() => {
