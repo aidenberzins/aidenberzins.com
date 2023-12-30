@@ -1,0 +1,15 @@
+---
+import Link from '../components/Link'
+import Layout from './BaseLayout.astro'
+---
+
+<Layout>
+  <header slot="header" class="mb-8">
+    <Link href="/">
+      <h1 class="text-2xl font-bold" transition:name="site-title">Aiden Berzins</h1>
+    </Link>
+  </header>
+  <main id="content" class="w-100 max-w-[80ch]">
+    <slot />
+  </main>
+</Layout>
