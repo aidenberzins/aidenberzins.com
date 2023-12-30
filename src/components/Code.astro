@@ -1,0 +1,90 @@
+---
+const { language } = Astro.props
+---
+
+<pre data-language={language}>
+  <code class="language-html">
+    <slot>
+      &lt;div&gt; &lt;/div&gt;
+    </slot>
+  </code>
+</pre>
+
+<style>
+  pre {
+    position: relative;
+    font-family:
+      SFMono-Regular,
+      Consolas,
+      Liberation Mono,
+      Menlo,
+      monospace;
+    clear: both;
+    color: #fff;
+    background: #1b1b1b;
+    padding: 0;
+    -moz-tab-size: 2;
+    -o-tab-size: 2;
+    tab-size: 2;
+    -ms-word-break: normal;
+    word-break: normal;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    position: relative;
+    line-height: 28px;
+    border-radius: 0.5em;
+    overflow: hidden;
+  }
+
+  pre code {
+    background: none;
+    display: block;
+    max-width: 100%;
+    min-width: 100px;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    padding: 1em 1.2em 0.8em 1.8em;
+    line-height: 1.75;
+    white-space: pre;
+    font-size: 1em;
+    tab-size: 4;
+  }
+
+  code {
+    font-family: monospace;
+    font-size: inherit;
+  }
+
+  pre::before {
+    content: attr(data-language);
+    position: absolute;
+    top: -0.2rem;
+    right: 0.4rem;
+
+    color: #ff7a18 !important;
+    font-size: 0.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'MD Primer Bold', Rubik, Lato, 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, Sans-Serif;
+  }
+
+  /* Inline Code */
+  p > code,
+  li > code,
+  dd > code,
+  td > code {
+    background: #ffeff0;
+    word-wrap: break-word;
+    box-decoration-break: clone;
+    padding: 0.1em 0.3em 0.2em;
+    border-radius: 0.2em;
+  }
+</style>
+<script>
+  import hljs from 'highlight.js/lib/core'
+  document.querySelectorAll('pre code').forEach((block) => {
+    hljs.highlightBlock(block as HTMLElement)
+  })
+</script>
