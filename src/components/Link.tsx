@@ -15,7 +15,8 @@ interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 }
 
 const Link = (props: LinkProps) => {
-  const isInternal = props.href && props.href.startsWith('/');
+  const isInternal =
+    props.href && (props.href.startsWith('/') || props.href.startsWith('#') || props.href.startsWith('./'));
   return (
     <a
       className={props.className ? twMerge([baseStyles(), props.className]) : twMerge([baseStyles(), defaultStyles()])}
