@@ -82,5 +82,4 @@ node_modules/
 
 
 # ignore self-hosted.yml after intial setup to private repo
-.gihub/workflows/self-hosted.yml
-.gihub/workflows/self-hosted.yaml
+tmp/
