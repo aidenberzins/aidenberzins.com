@@ -81,5 +81,4 @@ node_modules/
 .history/
 
 
-# ignore self-hosted.yml after intial setup to private repo
-tmp/
+.github/workflows/private.yml
