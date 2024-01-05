@@ -1,0 +1,16 @@
+---
+import Layout from '../../../layouts/ProjectLayout.astro'
+export const prerender = false
+---
+
+<Layout>
+  <canvas id="canvas" transition:name="canvas-image"></canvas>
+</Layout>
+<style>
+  canvas {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<script src="./script.ts"></script>

@@ -1,7 +1,9 @@
 import {cva} from 'class-variance-authority';
 
-const h1 = cva(['h1'], {variants: {}});
-const h2 = cva(['font-bold uppercase tracking-widest lg:sr-only mb-8', 'text-sky-900', 'dark:text-slate-200'], {
+const headerColors = 'text-sky-900 dark:text-slate-200';
+
+const h1 = cva(['font-bold text-2xl mb-12', headerColors], {variants: {}});
+const h2 = cva(['font-bold uppercase tracking-widest lg:sr-only mb-8', headerColors], {
   variants: {},
 });
 const h3 = cva(['h3'], {variants: {}});

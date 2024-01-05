@@ -1,0 +1,51 @@
+---
+import Code from '../../../components/Code.astro'
+import Layout from '../../../layouts/ProjectLayout.astro'
+import TodoApp from '../../../components/TodoApp'
+---
+
+<Layout>
+  <section class="space-y-8">
+    <div class="">
+      <h1 class="text-xl font-bold">ToDo</h1>
+      <p class="opacity-80">This is a simple ToDo example. It uses the local storage to store the data.</p>
+    </div>
+    <div>
+      <TodoApp client:visible />
+    </div>
+    <Code language="tsx">
+      {
+        `
+        import { XMarkIcon } from '../../../components/icons'
+        const todos = [
+          {
+            checked: false,
+            text: 'Task 1',
+          },
+          {
+            checked: true,
+            text: 'Task 2 ',
+          },
+        ]
+        <div class="space-y-4">
+          <h2 class="text-lg text-white">Tasks</h2>
+          <ul>
+            {
+              todos.map((todo) => (
+                <li class="flex justify-between">
+                  <label>
+                    <input type="checkbox" checked={todo.checked} />
+                    <span>{todo.text}</span>
+                  </label>
+                  <XMarkIcon className={\`w-4 h-4\` && todo.checked ? 'block' : 'hidden'} />
+                </li>
+              ))
+            }
+          </ul>
+          <input type="text" class="w-full p-1 rounded-sm" placeholder="Add a new task" />
+        </div>
+      `
+      }
+    </Code>
+  </section>
+</Layout>

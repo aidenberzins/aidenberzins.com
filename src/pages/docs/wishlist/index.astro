@@ -1,0 +1,12 @@
+---
+import Layout from "../../../layouts/DocsLayout.astro";
+import TOC from "./toc.md";
+import Introduction from "./introduction.md";
+---
+
+<Layout>
+  <TOC slot="toc" />
+  <slot>
+    <Introduction />
+  </slot>
+</Layout>

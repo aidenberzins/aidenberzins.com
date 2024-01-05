@@ -1,0 +1,30 @@
+---
+import Layout from '../../../layouts/ProjectLayout.astro'
+import image from '../../../images/ski-goggles.jpg'
+import Code from '../../../components/Code.astro'
+---
+
+<Layout projectTitle="Calendar">
+  <div slot="description">
+    <p>A calendar app that allows you to add events and view them in a calendar view. It also allows you to add reminders for events.</p>
+    <p>This project demonstrates the use of the following technologies:</p>
+  </div>
+  <img src={image.src} alt="Screenshot of the project" transition:name={`calendar-image`} />
+  <ul>
+    <li>React</li>
+    <li>Redux</li>
+    <li>React Router</li>
+    <li>Styled Components</li>
+    <li>React Testing Library</li>
+    <li>Storybook</li>
+    <li>Webpack</li>
+    <li>Babel</li>
+    <li>ESLint</li>
+    <li>Prettier</li>
+    <li>GitHub Actions</li>
+    <li>Netlify</li>
+  </ul>
+  <Code language="tsx">
+    {`this.isSomething()`}
+  </Code>
+</Layout>

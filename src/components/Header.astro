@@ -1,20 +1,14 @@
 ---
-import Navigation from "./Navigation";
+import Navigation from './Navigation'
 ---
 
 <div>
-  <h1
-    class="text-4xl font-bold tracking-tight text-gray-900 dark:text-slate-200 sm:text-5xl"
-  >
+  <h1 transition:name="site-title" class="text-4xl font-bold tracking-tight text-gray-900 dark:text-slate-200 sm:text-5xl">
     <a href="/">Aiden Berzins</a>
   </h1>
-  <h2
-    class="mt-3 text-lg font-medium tracking-tight text-gray-900 dark:text-slate-200 sm:text-xl"
-  >
-    Senior Fullstack Engineer
-  </h2>
-  <p class="max-w-xs mt-4 leading-normal">
-    I build accessible SaaS applications.
-  </p>
+  <h2 class="mt-3 text-lg font-medium tracking-tight text-gray-900 dark:text-slate-200 sm:text-xl">Senior Fullstack Engineer</h2>
+  <div class="space-y-4">
+    <p class="max-w-xs mt-4 leading-normal">I build SaaS applications and websites with a focus on accessibility and performance.</p>
+  </div>
   <Navigation client:load />
 </div>

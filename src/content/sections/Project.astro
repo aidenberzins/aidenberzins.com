@@ -1,103 +1,58 @@
 ---
-import { Image } from "astro:assets";
-import Link from "../../components/Link";
-import { h2, section } from "../../components/variants";
-import portfolio_image from "../../images/aiden_berzins_portfolio.jpeg";
-import { ArrowRightIcon } from "../../components/icons";
-
-const projects = [
-  {
-    title: "Subscription-based Membership Application",
-    description:
-      "a membership management app, featuring a user-friendly interface for subscription and community engagement",
-    image: "https://picsum.photos/300/200?id=1",
-    links: {
-      preview: "",
-      github: "",
-      docs: "",
-    },
-  },
-  {
-    title: "Real-Time Communication App",
-    description:
-      "real-time chat application developed using TypeScript and WebSocket technology. It offers instant messaging, group chat capabilities, media sharing, and user status indicators",
-    image: "https://picsum.photos/300/200?id=2",
-    links: {
-      preview: "",
-      github: "",
-      docs: "",
-    },
-  },
-  {
-    title: "Portfolio Website",
-    description:
-      "portfolio website built with Astro, Tailwind CSS, and TypeScript. It features a dark mode, projects, and blog",
-    image: portfolio_image.src,
-    links: {
-      github: "https://github.com/aidenberzins/aidenberzins.github.io",
-    },
-  },
-];
+import Link from '../../components/Link'
+import { h2, section } from '../../components/variants'
+import { ArrowIcon, ArrowRightIcon } from '../../components/icons'
+import { projects } from '../../data/projects'
 ---
 
 <section id="projects" class={section()} aria-label="Project">
   <div>
     <h2 class={h2()}>Projects</h2>
-    <div class="mb-16 space-y-12">
+    <div class="mb-16 space-y-8">
       {
-        projects.map((project) => (
-          <div class="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-4 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50 space-y-4 sm:space-y-0">
-            <aside class="sm:col-span-2">
-              <div
-                class="p-px mt-2 border border-gray-300 rounded dark:border-slate-600"
-                slot="aside"
-              >
-                <img
-                  src={project.image}
-                  height="200"
-                  width="300"
-                  title={`thumbnail of ${project.title} project`}
-                  alt={`thumbnail of ${project.title} project`}
-                  class="rounded shadow-sm"
-                />
-              </div>
-            </aside>
-            <main class="sm:col-span-6 space-y-2">
-              <header>
-                <h2
-                  slot="header"
-                  class="inline-block font-medium leading-snug dark:text-slate-200 text-slate-900"
-                >
-                  {project.title}
-                </h2>
-              </header>
-              <p class="mt-2 text-sm leading-normal">{project.description}</p>
-              <footer class="text-sm">
-                {Object.entries(project.links).map(([key, value]) => (
-                  <a
-                    class="p-1 inline-block mr-2 underline text-sky-700 dark:text-sky-300 cursor-pointer hover:text-slate-900  dark:hover:text-sky-600 transition-all ease-linear duration-300"
-                    href={value}
-                    target="_blank"
-                  >
-                    {key}
-                  </a>
-                ))}
-              </footer>
-            </main>
-          </div>
+        projects.slice(0, 3).map((project) => (
+          <a class="block group" href={`projects/${project.slug}`}>
+            <div class="relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-4 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50 space-y-4 sm:space-y-0">
+              <aside class="sm:col-span-2">
+                <div class="p-px mt-2 border border-gray-300 rounded dark:border-slate-600" slot="aside">
+                  <img
+                    src={project.image}
+                    height="200"
+                    width="300"
+                    title={`thumbnail of ${project.title} project`}
+                    alt={`thumbnail of ${project.title} project`}
+                    class="rounded shadow-sm"
+                  />
+                </div>
+              </aside>
+              <main class="sm:col-span-6 space-y-2 ">
+                <header>
+                  <h2 slot="header" class="font-medium leading-snug dark:text-slate-200 text-slate-900 items-center flex group-hover:text-sky-300">
+                    <span>{project.title}</span>
+                    <ArrowIcon className="inline-block w-4 h-4 ml-1 relative top-0 left-0 group-hover:-top-1 group-hover:left-1 motion-reduce:transition-none transition-all ease-out duration-100" />
+                  </h2>
+                </header>
+                <p class="mt-2 text-sm leading-normal">{project.description}</p>
+              </main>
+            </div>
+          </a>
         ))
       }
     </div>
   </div>
   <span class="group cursor-pointer flex gap-x-2 items-center">
-    <Link
+    <!-- <Link
       className="border-b-2 border-transparent group-hover:border-sky-600 dark:group-hover:border-teal-300 transition-all ease-in duration-100"
       href="https://github.com/aidenberzins"
     >
       View All Projects
+    </Link> -->
+    <Link
+      className="border-b-2 border-transparent group-hover:border-sky-600 dark:group-hover:border-teal-300 transition-all ease-in duration-100"
+      href="./projects"
+    >
+      View All Projects
     </Link>
-    <ArrowRightIcon
-      className="inline-block w-4 h-4 ml-1 group-hover:translate-x-1 motion-reduce:transition-none transition-transform ease-out duration-100"
-    />
+    <ArrowRightIcon className="inline-block w-4 h-4 ml-1 group-hover:translate-x-1 motion-reduce:transition-none transition-transform ease-out duration-100" />
   </span>
 </section>

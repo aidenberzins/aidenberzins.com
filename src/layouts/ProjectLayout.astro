@@ -1,23 +1,44 @@
 ---
+import { twMerge } from 'tailwind-merge'
 import Link from '../components/Link'
 import Layout from './BaseLayout.astro'
+import { projects } from '../data/projects'
+import { h1 } from '../components/variants'
+
+const { projectTitle } = Astro.props
 ---
 
 <Layout>
   <header slot="header" class="mb-8">
     <Link href="/">
-      <h1 class="text-2xl font-bold" transition:name="site-title">Aiden Berzins</h1>
+      <h1 class="text-xl font-bold tracking-tight text-gray-900 dark:text-slate-200 sm:text-3xl" transition:name="site-title">Aiden Berzins</h1>
     </Link>
   </header>
   <section class="grid grid-cols-[1fr_auto] grid-flow-col gap-x-8">
-    <main id="content" class="max-w-[80ch] border border-yellow-600 w-100">
+    <main id="content" class="max-w-[80ch] w-100">
+      {
+        Astro.url.pathname !== '/projects' && (
+          <>
+            <div class="mb-8 text-right">
+              <Link href="/projects">Back To Projects</Link>
+            </div>
+            <h1 class={twMerge(h1(), 'mb-4')}>{projectTitle}</h1>
+            <slot name="description" />
+          </>
+        )
+      }
       <slot />
     </main>
-    <aside class="border border-red-600 max-w-xs">
+    <aside class="max-w-xs">
       <slot name="aside">
-        <h2>Aside</h2>
-        <p>This is some placeholder content</p>
-        <p>It should scroll down the page as a psuedo navigation / table of content</p>
+        <h2>Projects</h2>
+        {
+          projects.map((p) => (
+            <Link href={`/projects/${p.slug}`}>
+              <h3>{p.title}</h3>
+            </Link>
+          ))
+        }
       </slot>
     </aside>
   </section>
