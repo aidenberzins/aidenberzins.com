@@ -79,3 +79,8 @@ node_modules/
 
 # Local History for Visual Studio Code
 .history/
+
+
+# ignore self-hosted.yml after intial setup to private repo
+.gihub/workflows/self-hosted.yml
+.gihub/workflows/self-hosted.yaml
